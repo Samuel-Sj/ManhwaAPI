@@ -2,13 +2,14 @@ package com.manhwaapi.manhwaapi.model;
 
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
-import org.hibernate.annotations.IdGeneratorType;
+
 
 @Entity
 public class Manhwa {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY);
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @Column(name = "name")
     @NotNull
@@ -19,23 +20,27 @@ public class Manhwa {
     private int releaseYear;
 
     @Column(name = "isFinished")
-    private boolean isFinished;
+    private Boolean isFinished = false;
 
-    public Manhwa (long id, String name, int releaseYear, boolean isFinished){
+    public Manhwa() {
+    }
+
+    public Manhwa(Long id, String name, int releaseYear, Boolean isFinished) {
         this.id = id;
         this.name = name;
         this.releaseYear = releaseYear;
         this.isFinished = isFinished;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 
@@ -51,11 +56,11 @@ public class Manhwa {
         this.releaseYear = releaseYear;
     }
 
-    public boolean isFinished() {
+    public Boolean getFinished() {
         return isFinished;
     }
 
-    public void setFinished(boolean finished) {
+    public void setFinished(Boolean finished) {
         isFinished = finished;
     }
 }

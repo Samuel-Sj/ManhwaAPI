@@ -5,11 +5,11 @@ import com.manhwaapi.manhwaapi.model.Manhwa;
 
 public interface ManhwaService {
     Manhwa saveManhwa(Manhwa manhwa);
-    Manhwa fetchManhwa();
-    Manhwa updateManhwa(Manhwa manhwa, long id);
-    void deleteManhwaById (long id);
+    Manhwa fetchManhwaByName(String Name);
+    Manhwa fetchManhwaByReleasedYear(int releasedYear);
+    Manhwa fetchManhwByFinished (Boolean isFininshed);
+    Manhwa updateManhwa(Manhwa manhwa, Long id);
+    void deleteManhwaById (Long id);
     void deleteManhwaByName(String name);
-
-
 
 }
