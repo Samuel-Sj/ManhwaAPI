@@ -11,7 +11,7 @@ public class Manhwa {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name",unique = true)
     @NotNull
     private String name;
 

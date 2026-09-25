@@ -1,11 +1,15 @@
 package com.manhwaapi.manhwaapi.services;
 
+import com.manhwaapi.manhwaapi.exceptions.ManhwaAlreadyExists;
 import com.manhwaapi.manhwaapi.exceptions.ManhwaNotFound;
 import com.manhwaapi.manhwaapi.model.Manhwa;
 import com.manhwaapi.manhwaapi.repository.ManhwaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 
+import java.util.Locale;
 import java.util.Objects;
 
 @Service
@@ -16,6 +20,10 @@ public class ManhwaServiceImpl implements ManhwaService {
 
     @Override
     public Manhwa saveManhwa(Manhwa manhwa) {
+        manhwa.setName(manhwa.getName().toLowerCase(Locale.ROOT));
+        if (manhwaRepository.existsByName(manhwa.getName())){
+            throw new ManhwaAlreadyExists("Manhwa já cadastrado" + manhwa.getName());
+        }
         return manhwaRepository.save(manhwa);
     }
 

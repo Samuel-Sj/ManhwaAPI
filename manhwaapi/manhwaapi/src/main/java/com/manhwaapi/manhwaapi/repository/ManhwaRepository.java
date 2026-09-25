@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ManhwaRepository extends JpaRepository<Manhwa,Long> {
+    public boolean existsByName(String name);
     public Manhwa findByName(String name);
     public Manhwa findByReleaseYear(int releaseYear);
     public Manhwa findByFinished (boolean isFinished);

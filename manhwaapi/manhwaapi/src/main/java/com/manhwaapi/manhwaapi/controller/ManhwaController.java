@@ -22,33 +22,33 @@ public class ManhwaController {
     }
 
     @GetMapping("/name/{name}")
-    public Manhwa fetchManhwaByName(@PathVariable String name) {
+    public Manhwa fetchManhwaByName(@RequestParam String name) {
         return manhwaService.fetchManhwaByName(name.toLowerCase());
     }
 
     @GetMapping("/year/{releasedYear}")
-    public Manhwa fetchManhwaByReleasedYear(@PathVariable("releasedYear") int releasedYear) {
+    public Manhwa fetchManhwaByReleasedYear(@RequestParam("releasedYear") int releasedYear) {
         return manhwaService.fetchManhwaByReleasedYear(releasedYear);
     }
 
     @GetMapping("/finished/{isFinished}")
-    public Manhwa fetchManhwByFinished(@PathVariable Boolean isFinished) {
+    public Manhwa fetchManhwByFinished(@RequestParam Boolean isFinished) {
         return manhwaService.fetchManhwByFinished(isFinished);
     }
 
     @PutMapping("/{id}")
-    public Manhwa updateManhwa(@RequestBody Manhwa manhwa, @PathVariable("id") Long id) {
+    public Manhwa updateManhwa(@RequestParam Manhwa manhwa, @PathVariable("id") Long id) {
         return manhwaService.updateManhwa(manhwa, id);
     }
 
     @DeleteMapping("/id/{id}")
-    public String deleteManhwaById(@PathVariable("id") Long id) {
+    public String deleteManhwaById(@RequestParam("id") Long id) {
         manhwaService.deleteManhwaById(id);
         return "Manhwa com id " + id + " deletado com sucesso";
     }
 
     @DeleteMapping("/name/{name}")
-    public String deleteManhwaByName(@PathVariable("name") String name) {
+    public String deleteManhwaByName(@RequestParam("name") String name) {
         manhwaService.deleteManhwaByName(name.toLowerCase());
         return "Manhwa " + name + " deletado com sucesso";
     }
