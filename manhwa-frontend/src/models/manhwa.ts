@@ -1,5 +1,5 @@
 export default interface Manhwa {
-    id: number;
+    id?: number;
     name: string;
     releaseYear: number;
     isFinished: boolean;

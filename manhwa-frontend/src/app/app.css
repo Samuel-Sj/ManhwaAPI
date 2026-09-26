@@ -1,0 +1,23 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.topbar nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.topbar nav a.active {
+  color: #000;
+  text-decoration: underline;
+}

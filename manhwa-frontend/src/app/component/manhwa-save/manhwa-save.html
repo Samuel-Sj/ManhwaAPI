@@ -1,0 +1,25 @@
+<section>
+    <h2>Adicionar Manhwa</h2>
+    <form (ngSubmit)="submit()" class="manhwa-form">
+        <label>
+            Nome
+            <input type="text" name="name" [(ngModel)] ="manhwa.name" required/>
+        </label>
+        <label>
+            Ano de Lançamento
+            <input type="number" name="releaseYear" [(ngModel)] ="manhwa.releaseYear" required/>
+        </label>
+        <label class="checkbox">
+            Finalizado
+            <input type="checkbox" name="isFinished" [(ngModel)] ="manhwa.isFinished" required/>
+        </label>
+        <button type="submit">Salvar</button>
+    </form>
+    @if (success()){
+        <p class="success">Manhwa salvo com sucesso"</p>
+    }
+
+    @if (error()){
+        <p class="error">{{error()}}</p>
+    }
+</section>

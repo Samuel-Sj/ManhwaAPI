@@ -1,0 +1,15 @@
+<section class="search">
+  <h2>Buscar Manhwa</h2>
+
+  <form (ngSubmit)="search()" class="search-form">
+    <input
+      type="text"
+      name="name"
+      placeholder="Nome do Manhwa"
+      [(ngModel)]="searchTerm"
+      required
+    />
+
+    <button type="submit">Buscar</button>
+  </form>
+</section>
