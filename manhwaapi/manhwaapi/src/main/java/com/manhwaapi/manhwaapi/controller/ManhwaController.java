@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/manhwa")
 public class ManhwaController {
 
@@ -22,7 +23,7 @@ public class ManhwaController {
     }
 
     @GetMapping("/name/{name}")
-    public Manhwa fetchManhwaByName(@RequestParam String name) {
+    public Manhwa fetchManhwaByName(@PathVariable String name) {
         return manhwaService.fetchManhwaByName(name.toLowerCase());
     }
 

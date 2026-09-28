@@ -1,8 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-import Manhwa from '../../../models/manhwa';
-import { ManhwaService } from '../../../services/manhwa.service';
 
 @Component({
   selector: 'app-manhwa-search',
@@ -13,31 +11,12 @@ import { ManhwaService } from '../../../services/manhwa.service';
 export class ManhwaSearch {
   searchTerm = '';
 
-  result = signal<Manhwa | null>(null);
-  error = signal<string | null>(null);
-
-  constructor(private manhwaService: ManhwaService) {}
+  constructor(private router: Router) {}
 
   search() {
-    const request = this.manhwaService.getByName(
-      this.searchTerm.toLowerCase().trim()
-    );
+    const term = this.searchTerm.trim();
+    if (!term) return;
 
-    request.subscribe({
-      next: (manhwa) => {
-        this.result.set(manhwa);
-        this.error.set(null);
-      },
-
-      error: (err) => {
-        this.result.set(null);
-
-        this.error.set(
-          err.status === 404
-            ? 'Nenhum Manhwa encontrado'
-            : 'Erro ao buscar Manhwa'
-        );
-      },
-    });
+    this.router.navigate(['/resultados'], { queryParams: { q: term } });
   }
 }

@@ -1,0 +1,22 @@
+<div class="manhwa-result">
+  <h2 class="manhwa-result-title">Resultados</h2>
+
+  @if (search_manhwa) {
+  <p>Resultados para: {{ search_manhwa }}</p>
+  }
+
+  @if (loading()) {
+  <p>Procurando manhwa desejado...</p>
+  }
+
+  @if (error()) {
+  <p>{{ error() }}</p>
+  }
+
+  @if (manhwa_result(); as manhwa) {
+  <div class="manhwa-card">
+
+    <h3>{{ manhwa.name }}</h3>
+  </div>
+  }
+</div>
