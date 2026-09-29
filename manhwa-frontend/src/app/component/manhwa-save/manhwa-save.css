@@ -1,0 +1,111 @@
+h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.manhwa-form {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: var(--panel);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.manhwa-form label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.manhwa-form input[type='text'],
+.manhwa-form input[type='number'] {
+  padding: 0.75rem 0.85rem;
+  border: var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  font-weight: 400;
+}
+
+.manhwa-form input[type='text']:focus-visible,
+.manhwa-form input[type='number']:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 1px;
+}
+
+/* Checkbox fica à esquerda do texto */
+.manhwa-form label.checkbox {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+}
+
+.manhwa-form input[type='checkbox'] {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin: 0;
+  accent-color: var(--green-deep);
+}
+
+.manhwa-form input[type='checkbox']:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+}
+
+.manhwa-form button {
+  justify-self: start;
+  padding: 0.75rem 1.75rem;
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--green);
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.manhwa-form button:hover {
+  background: var(--green-deep);
+  color: #fff;
+}
+
+.manhwa-form button:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+.manhwa-form button:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.success,
+.error {
+  margin: 1.25rem 0 0;
+  padding: 0.75rem 1rem;
+  border: 2px solid;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.success {
+  background: var(--green-wash);
+  border-color: var(--green-deep);
+  color: #0a4a1c;
+}
+
+.error {
+  background: var(--danger-wash);
+  border-color: var(--danger);
+  color: #7a1a14;
+}

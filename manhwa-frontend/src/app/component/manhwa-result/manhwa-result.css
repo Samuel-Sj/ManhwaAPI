@@ -1,0 +1,44 @@
+.manhwa-result-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.manhwa-result p {
+  margin: 0 0 1rem;
+  color: #4a524b;
+}
+
+/* Adicione class="loading" e class="error" nos <p> correspondentes */
+.manhwa-result .loading {
+  font-style: italic;
+}
+
+.manhwa-result .error {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--danger);
+  border-radius: var(--radius);
+  background: var(--danger-wash);
+  color: #7a1a14;
+  font-weight: 600;
+}
+
+.manhwa-card {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--panel);
+  border: var(--border);
+  border-left: 10px solid var(--green);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.manhwa-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
