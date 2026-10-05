@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Auth {
-  private apiUrl = "localhost:8080/login";
+  private apiUrl = "http://localhost:8080/auth";
   private token: string | null = null;
   constructor (private http: HttpClient, private router: Router) {}
   
@@ -27,7 +27,7 @@ export class Auth {
   logout():void{
     this.token = null;
     localStorage.removeItem('access_token');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
 
   }
 

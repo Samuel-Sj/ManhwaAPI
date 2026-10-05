@@ -4,7 +4,7 @@ package com.manhwaapi.manhwaapi.model;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
@@ -14,7 +14,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    public User(long id, String username, String password){
+    public Users(String username, String password){
         this.id = id;
         this.username = username;
         this.password = password;

@@ -3,7 +3,7 @@ package com.manhwaapi.manhwaapi.services;
 import com.manhwaapi.manhwaapi.dto.AuthResponse;
 import com.manhwaapi.manhwaapi.dto.LoginRequest;
 import com.manhwaapi.manhwaapi.dto.RegisterRequest;
-import com.manhwaapi.manhwaapi.model.User;
+import com.manhwaapi.manhwaapi.model.Users;
 import com.manhwaapi.manhwaapi.repository.UserRepository;
 import com.manhwaapi.manhwaapi.security.JwtService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,26 +35,24 @@ public class AuthService {
         String hashedPassword =
                 passwordEncoder.encode(request.password());
 
-        User user = new User(
+        Users users = new Users(
                 request.username(),
                 hashedPassword
         );
 
-        userRepository.save(user);
+        userRepository.save(users);
     }
 
     public AuthResponse login(LoginRequest request) {
 
-        User user = userRepository
-                .findByUsername(request.username())
-                .orElseThrow(() ->
-                        new RuntimeException("Invalid username or password")
+        Users users = userRepository
+                .findByUsername(request.username()
                 );
 
         boolean passwordMatches =
                 passwordEncoder.matches(
                         request.password(),
-                        user.getPassword()
+                        users.getPassword()
                 );
 
         if (!passwordMatches) {
@@ -62,7 +60,7 @@ public class AuthService {
         }
 
         String token = jwtService.generateToken(
-                user.getUsername()
+                users.getUsername()
         );
 
         return new AuthResponse(token);

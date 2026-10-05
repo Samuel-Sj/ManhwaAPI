@@ -1,6 +1,6 @@
 package com.manhwaapi.manhwaapi.security;
 
-import com.manhwaapi.manhwaapi.model.User;
+import com.manhwaapi.manhwaapi.model.Users;
 import com.manhwaapi.manhwaapi.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -50,13 +50,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String username = jwtService.extractUsername(token);
 
-        User user = userRepository.findByUsername(username).orElse(null);
+        Users users = userRepository.findByUsername(username);
 
-        if (user != null) {
+        if (users != null) {
 
             UsernamePasswordAuthenticationToken authentication =
                     new UsernamePasswordAuthenticationToken(
-                            user,
+                            users,
                             null,
                             java.util.Collections.emptyList()
                     );
