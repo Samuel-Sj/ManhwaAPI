@@ -5,17 +5,22 @@ import jakarta.persistence.*;
 
 @Entity
 public class Users {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "username")
     private String username;
+
     @Column(name = "password")
     private String password;
 
-    public Users(String username, String password){
-        this.id = id;
+    // REQUIRED BY JPA
+    protected Users() {
+    }
+
+    public Users(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -36,7 +41,7 @@ public class Users {
         this.username = username;
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 

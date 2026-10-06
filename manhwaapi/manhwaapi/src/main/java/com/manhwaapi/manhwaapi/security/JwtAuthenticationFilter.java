@@ -50,13 +50,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String username = jwtService.extractUsername(token);
 
-        Users users = userRepository.findByUsername(username);
+        Users user = userRepository.findByUsername(username);
 
-        if (users != null) {
+        if (user != null) {
 
             UsernamePasswordAuthenticationToken authentication =
                     new UsernamePasswordAuthenticationToken(
-                            users,
+                            user,
                             null,
                             java.util.Collections.emptyList()
                     );

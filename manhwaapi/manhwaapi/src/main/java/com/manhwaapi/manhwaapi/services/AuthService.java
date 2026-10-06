@@ -3,6 +3,7 @@ package com.manhwaapi.manhwaapi.services;
 import com.manhwaapi.manhwaapi.dto.AuthResponse;
 import com.manhwaapi.manhwaapi.dto.LoginRequest;
 import com.manhwaapi.manhwaapi.dto.RegisterRequest;
+import com.manhwaapi.manhwaapi.exceptions.UserAlreadyExists;
 import com.manhwaapi.manhwaapi.model.Users;
 import com.manhwaapi.manhwaapi.repository.UserRepository;
 import com.manhwaapi.manhwaapi.security.JwtService;
@@ -29,7 +30,7 @@ public class AuthService {
     public void register(RegisterRequest request) {
 
         if (userRepository.existsByUsername(request.username())) {
-            throw new RuntimeException("Username already exists");
+            throw new UserAlreadyExists("Usuário já existe !");
         }
 
         String hashedPassword =

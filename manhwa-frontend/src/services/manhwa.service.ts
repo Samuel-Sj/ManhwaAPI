@@ -12,7 +12,8 @@ export class ManhwaService {
 
   getByName(name: string) {
     return this.http.get<Manhwa>(
-      `${this.apiUrl}/name/${encodeURIComponent(name)}`
+      `${this.apiUrl}/name/${encodeURIComponent(name)}`,
+  
     );
   }
 
