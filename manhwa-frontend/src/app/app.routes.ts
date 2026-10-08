@@ -13,13 +13,11 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
 
-    // Login não possui Layout
     {
         path: 'auth/login',
         component: Login
     },
 
-    // Tudo aqui terá o Layout
     {
         path: '',
         component: Layout,
