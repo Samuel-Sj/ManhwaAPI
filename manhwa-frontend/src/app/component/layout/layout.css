@@ -1,0 +1,56 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--ink);
+  border-bottom: 4px solid var(--green);
+}
+
+.topbar h1 {
+  margin: 0;
+  color: var(--green);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: capitalize;
+  
+}
+
+.topbar nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.topbar nav a {
+  padding: 0.45rem 0.8rem;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  color: #e8ece6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.topbar nav a:hover {
+  border-color: #e8ece6;
+}
+
+.topbar nav a.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--ink);
+}
+
+.topbar nav a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
